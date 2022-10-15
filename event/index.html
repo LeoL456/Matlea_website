@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivez le lancement de Matléa en direct !</title>
+
+    <style>
+        /* general styling */
+        :root {
+            --smaller: .75;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            align-items: center;
+            background-color: #e2eef7;
+            display: flex;
+            font-family: -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Oxygen-Sans,
+                Ubuntu,
+                Cantarell,
+                "Helvetica Neue",
+                sans-serif;
+        }
+
+        .container {
+            color: #333;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: normal;
+            letter-spacing: .125rem;
+            text-transform: uppercase;
+        }
+
+        li {
+            display: inline-block;
+            font-size: 1.5em;
+            list-style-type: none;
+            padding: 1em;
+            text-transform: uppercase;
+        }
+
+        li span {
+            display: block;
+            font-size: 4.5rem;
+        }
+
+        .emoji {
+            display: none;
+            padding: 1rem;
+        }
+
+        .emoji span {
+            font-size: 4rem;
+            padding: 0 .5rem;
+        }
+
+        @media all and (max-width: 768px) {
+            h1 {
+                font-size: calc(1.5rem * var(--smaller));
+            }
+
+            li {
+                font-size: calc(1.125rem * var(--smaller));
+            }
+
+            li span {
+                font-size: calc(3.375rem * var(--smaller));
+            }
+        }
+        .d-none {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+<!-- GN4RK.com -->
+<style>
+    #compte_a_rebours {
+      font-family: Arial;
+      background-image: url(http://operation.toutfaire.fr/logo.png);
+      background-repeat: no-repeat;
+      background-position: 5px 5px;
+      color: black;
+      text-align: center;
+
+      margin: auto;
+      padding: 20px;
+    }
+  
+    .prefixe {
+      font-weight: bold;
+    }
+  
+    .block, .nb {
+      display: inline-block;
+    }
+  
+    .block {
+      width: 164px;
+    }
+  
+    .nb {
+      font-size: 5em;
+      font-weight: bold;
+    }
+  </style>
+  <div id="compte_a_rebours"><noscript>Début de l'évènement le 6 février 2022.</noscript></div>
+  <script type="text/javascript">
+    function compte_a_rebours() {
+      var compte_a_rebours = document.getElementById("compte_a_rebours");
+      var date_actuelle = new Date();
+      var date_evenement = new Date("Oct 12 2022 17:00:00");
+      var total_secondes = (date_evenement - date_actuelle) / 1000;
+      var prefixe = '<div style="font-size:46px;" class="prefixe">Lancement de Matléa dans... </div>';
+      if (total_secondes < 0) {
+        prefixe = "🚀🚀🚀 Rafraichissez la page ! 🚀🚀🚀";
+        total_secondes = Math.abs(total_secondes);
+      }
+  
+      if (total_secondes > 0) {
+        var jours = Math.floor(total_secondes / (60 * 60 * 24));
+        var heures = Math.floor((total_secondes - (jours * 60 * 60 * 24)) / (60 * 60));
+        minutes = Math.floor((total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
+        secondes = Math.floor(total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
+  
+        if (secondes < 10) {
+          secondes = '0' + secondes;
+        }
+  
+        if (minutes < 10) {
+          minutes = '0' + minutes;
+        }
+  
+        if (heures < 10) {
+          heures = '0' + heures;
+        }
+  
+        var mot_jour = "jours";
+        var mot_heure = "heures";
+        var mot_minute = "minutes";
+        var mot_seconde = "secondes";
+  
+        if (secondes < 2) {
+          mot_seconde = "seconde";
+        }
+  
+        compte_a_rebours.innerHTML = prefixe + '<br /><div class="block" id="heures">' 
+          + '<div class="nb">' + heures + '</div><br />' + mot_heure + '</div><div class="block" id="minutes">'
+          + '<div class="nb">' + minutes + '</div><br />' + mot_minute + '</div><div class="block" id="secondes"> '
+          + '<div class="nb">' + secondes + '</div><br />' + mot_seconde + '</div>';
+      } else {
+        compte_a_rebours.innerHTML = 'Compte à rebours terminé.';
+      }
+  
+      var actualisation = setTimeout("compte_a_rebours();", 1000);
+
+      if (heures <= 0) {
+          document.getElementById('heures').style.display = 'none';
+      }
+
+      if (minutes <= 0 & heures == 0) {
+        document.getElementById('minutes').style.display = 'none';
+        document.getElementById('secondes').style.fontSize = '46px';
+      }
+    }
+    compte_a_rebours();
+  </script>
+</body>
+
+</html>
